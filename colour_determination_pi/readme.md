@@ -1,1 +1,1 @@
-This folder contains the code files for the Pi that is responsible for running the bulk of the conveyors and determining what colour the inputed lego pieces are. It will also be responsible for helping separate out individual pieces to ensure that they are able to be identified
+This folder contains the code files for the Pi that is responsible for running the bulk of the conveyors and determining what colour the inputted lego pieces are. It will also be responsible for helping separate out individual pieces to ensure that they are able to be identified
