@@ -14,9 +14,15 @@ class Stat(QWidget):
     def __init__(self, stat_name : str, stat_value : float | int):
         super().__init__()
 
-        #Creates two labels with the name of the statistic to be shown and 
+        #Creates two labels with the name of the statistic to be shown and the value itself
         self.stat_label = QLabel(stat_name, self)
         self.stat_value_label = QLabel(stat_value, self)
+
+        #Arranges the two widgets so that the name is to the left of the value
+        layout = QGridLayout()
+        layout.addWidget(self.stat_label, 0, 0)
+        layout.addWidget(self.stat_value_label, 0, 1)
+        self.setLayout(layout)
 
     def update_stat(self):
         self.stat_label.repaint()
@@ -38,15 +44,21 @@ class StatsTab(Tab):
 
         self.stats = {} #Create a dictionary of stats to allow easy access of individual ones later
 
+        self.stats_layout = QGridLayout() #Set up a Grid Layout to allow formatting of the stats
+        self.setLayout(self.stats_layout)
+        self.row = 0
+
         #Timer for updating the stats every 10000ms
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_stats)
         self.timer.start(10000)
 
-    #Adds stats by creating an instance of the stat Class
     def add_stat(self, name:str, value:int|float):
-        self.stats[name] = Stat(name, value)
+        self.stats[name] = Stat(name, value) #Adds stats by creating an instance of the stat Class
+        self.stats_layout.addWidget(self.stats[name], self.row) #Adds each new stat to a new row
+        self.row += 1
 
+    #Update all the stats by calling the update method of each individual one
     def update_stats(self):
         for stat in self.stats.values():
             stat.update_stat()
