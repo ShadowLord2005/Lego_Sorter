@@ -1,5 +1,8 @@
-Note that this Pi must not be a Pi5 due to the fact the the RPi Motor libary is not yet compatable. 
+Note that this Pi must not be a Pi5 due to the fact the the RPi Motor library is not yet compatible. 
 
 This folder contains the code files for the Pi that is responsible for managing the pick and place machine for depositing sorted bits into the correct bins.
 It will have a single camera responsible for reading bin ID codes and will control several motors to move the cradle in the X-Z plane as well as control a short conveyor for moving the parts off into the bins. 
 It will start by identifying the layout of bins in its area and will then receive part types from the prior steps in order to either move the part into the correct bin or into overflow for resorting with a different set of bins
+
+
+[Link for Stepper Code Docs](https://github.com/gavinlyonsrepo/RpiMotorLib/blob/master/extra/Documentation/Nema11DRV8825.md)

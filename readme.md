@@ -21,3 +21,7 @@ The physical structure is composed of several parts:
 - Straight Belt
 - Turn Belt
 - Part Separator
+
+#### Pick and Place
+- NEMA 17 Steppers
+- DRV2588 Driver Chip
