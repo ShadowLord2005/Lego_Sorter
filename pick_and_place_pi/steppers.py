@@ -128,3 +128,13 @@ class PlotterMotor:
         else:
             #TODO Custom Exception
             raise Exception
+
+if __name__ == "__main__":
+
+    direction_pin = 4
+    step_pin = 5
+    mode_pins = (6,7,8)
+    home_limit_pin = 15
+    end_limit_pin = 16
+
+    trackless_test_motor = PlotterMotor(direction_pin, step_pin, mode_pins, 100, 10, MotorDirection.CW, home_limit_pin, end_limit_pin)
